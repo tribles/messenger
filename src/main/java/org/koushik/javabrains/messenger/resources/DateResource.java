@@ -22,7 +22,7 @@ public class DateResource {
 	}
 	
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.TEXT_PLAIN)  // custom message body writer that converts date object to text
 	public Date returnDate(){
 		return Calendar.getInstance().getTime();
 	}

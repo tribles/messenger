@@ -27,5 +27,11 @@ public class DateResource {
 		return Calendar.getInstance().getTime();
 	}
 	
+	@GET
+	@Produces("text/shortDate") // Custom Media Type
+	public Date returnShortDate(){
+		return Calendar.getInstance().getTime();
+	}
+	
 
 }

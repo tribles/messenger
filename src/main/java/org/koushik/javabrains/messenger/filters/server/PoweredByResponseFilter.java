@@ -1,4 +1,4 @@
-package org.koushik.javabrains.messenger.filter.response;
+package org.koushik.javabrains.messenger.filters.server;
 
 import java.io.IOException;
 

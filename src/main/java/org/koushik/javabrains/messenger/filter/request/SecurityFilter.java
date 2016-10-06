@@ -1,4 +1,4 @@
-package org.koushik.javabrains.messenger.filter;
+package org.koushik.javabrains.messenger.filter.request;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +11,7 @@ import javax.ws.rs.ext.Provider;
 
 import org.glassfish.jersey.internal.util.Base64;
 
-@Provider
+//@Provider
 public class SecurityFilter implements ContainerRequestFilter {
 	private static final String AUTHORIZATION_HEADER = "Authorization";
 	private static final String AUTHORIZATION_HEADER_PREFIX ="Basic";
@@ -29,11 +29,13 @@ public class SecurityFilter implements ContainerRequestFilter {
 			String authToken = headerlist.get(0);
 			authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
 			String decodedString = Base64.decodeAsString(authToken);
+			System.out.println(" decoded >>"+decodedString);
 			StringTokenizer tokenizer = new StringTokenizer(decodedString,":");
 			
 			String userName = tokenizer.nextToken();
 			String password = tokenizer.nextToken();
 			
+			System.out.println(" usename>>"+userName+">>password>>"+password);
 			
 			if("user".equals(userName) && "password".equals(password))	
 				return;
